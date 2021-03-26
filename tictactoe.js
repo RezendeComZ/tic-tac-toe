@@ -63,7 +63,7 @@ window.addEventListener('click', ev => {
 
 const winner = () => {
   changePlayer()
-  alert(`Vencedor: ${player}`)
+  alert(`Winner: ${player}`)
   reset()
 }
 
