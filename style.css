@@ -1,4 +1,4 @@
-.box {
+.container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,10 +11,10 @@
   justify-content: center;
   width: 50vh;
   height: 50vh;
-  background-color: burlywood;
+  /* background-color: burlywood; */
 }
 
-table {
+.table {
   text-align: center;
   height: 100%;
   width: 100%;
@@ -22,16 +22,19 @@ table {
 
 .right {
   border-right-style: solid;
-  border-right-color: blue;
+  border-right-color: black;
   border-width: 5px;
 }
 .bottom {
   border-bottom-style: solid;
-  border-bottom-color: blue;
+  border-bottom-color:black;
   border-width: 5px;
 }
 
-td {
+.square {
   width: 33%;
   height: 33%;
+}
+p {
+  font-size: 500%
 }
