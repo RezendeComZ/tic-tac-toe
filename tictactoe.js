@@ -12,8 +12,9 @@ const changePlayer = () => {
 
 cols.forEach(col => {
   col.addEventListener('click', (ev) => {
-    col.innerHTML = `<p>${player}</p>`
-    changePlayer()
-    console.log(ev)
+    if (ev.target.classList[0] == 'placeholder') {
+      col.innerHTML = `<p class='played'>${player}</p>`
+      changePlayer()
+    }
   })
 })
