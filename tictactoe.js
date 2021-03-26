@@ -51,8 +51,9 @@ let roundDiv = qSelector('#round')[0]
 roundDiv.innerText = round
 let playerTurn = 'X';
 
+let textTurn = ' - Your turn'
+qSelector('#playerAturn')[0].innerText = textTurn
 const changePlayer = () => {
-  let textTurn = ' - Your turn'
   if (playerTurn == 'X') {
     playerTurn = 'O'
     qSelector('#playerBturn')[0].innerText = textTurn
