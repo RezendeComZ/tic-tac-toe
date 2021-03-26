@@ -1,13 +1,8 @@
 let cols = document.querySelectorAll('.col');
 
 let player = 'X'
-
 const changePlayer = () => {
-  if (player == 'X') {
-    player = 'O'
-  } else {
-    player = 'X'
-  }
+  (player == 'X') ? player = 'O' : player = 'X'
 }
 
 cols.forEach(col => {
@@ -18,3 +13,15 @@ cols.forEach(col => {
     }
   })
 })
+
+window.addEventListener('click', ev => {
+  if (cols[0].innerText != '_') {
+    if (cols[0].innerText == cols[1].innerText && cols[0].innerText == cols[2].innerText) {
+      alert(`Vencedor: ${cols[0].innerText}`)
+    }
+    if (cols[0].innerText == cols[3].innerText && cols[0].innerText == cols[6].innerText) {
+      alert(`Vencedor: ${cols[0].innerText}`)
+    }
+  }
+  
+}) 
