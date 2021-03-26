@@ -49,10 +49,19 @@ playerBNameDiv.addEventListener('click', (ev) => {
 let round = 1;
 let roundDiv = qSelector('#round')[0]
 roundDiv.innerText = round
-let playerTurn = 'X'
+let playerTurn = 'X';
 
 const changePlayer = () => {
-  (playerTurn == 'X') ? playerTurn = 'O' : playerTurn = 'X'
+  let textTurn = ' - Your turn'
+  if (playerTurn == 'X') {
+    playerTurn = 'O'
+    qSelector('#playerBturn')[0].innerText = textTurn
+    qSelector('#playerAturn')[0].innerText = ''
+  } else {
+    playerTurn = 'X'
+    qSelector('#playerAturn')[0].innerText = textTurn
+    qSelector('#playerBturn')[0].innerText = ''
+  } 
 }
 
 cols.forEach(col => {
@@ -128,4 +137,5 @@ const winner = () => {
   roundDiv.innerText = round;
   console.log(`Round ${round}. Winner: ${winnerName}. ${playerAName}: ${playerAPoints} - ${playerBName}: ${playerBPoints}` )
   reset()
+  changePlayer()
 }
