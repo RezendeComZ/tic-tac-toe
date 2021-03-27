@@ -48,7 +48,6 @@ playerBNameDiv.addEventListener('click', (ev) => {
   playerBName = prompt('Player B name:') // Future CPU indication
   if (!playerBName || playerBName == 'cpu' || playerBName == 'CPU' || playerBName == 'Cpu') {
     playerBNameDiv.innerText = '🖥️ CPU';
-    playerTurn = 'X'
     roundReset();
     reset()
   } else {
@@ -169,7 +168,9 @@ window.addEventListener('click', ev => {
   roundDiv.innerText = round;
   console.log(`Round ${round}. Winner: ${winnerName}. ${playerAName}: ${playerAPoints} - ${playerBName}: ${playerBPoints}` )
   reset()
-  changePlayer()
+  if (!playerBNameDiv.innerText == '🖥️ CPU') {
+    changePlayer()
+  }
 }
 
 // CPU
@@ -246,6 +247,63 @@ const checkDanger = () => {
   if (colIsEmpty(0) && cols[3].innerText == cpuOpponent && cols[6].innerText == cpuOpponent) {
     return playAtClass(cols[0]);
   }
+  if (cols[0].innerText == cpuOpponent && colIsEmpty(3) && cols[6].innerText == cpuOpponent) {
+    return playAtClass(cols[3]);
+  }
+  if (cols[0].innerText == cpuOpponent && cols[3].innerText == cpuOpponent && colIsEmpty(6)) {
+    return playAtClass(cols[6]);
+  }
+  // line 2
+  if (colIsEmpty(1) && cols[4].innerText == cpuOpponent && cols[7].innerText == cpuOpponent) {
+    return playAtClass(cols[1]);
+  }
+  if (cols[1].innerText == cpuOpponent && colIsEmpty(4) && cols[7].innerText == cpuOpponent) {
+    return playAtClass(cols[4]);
+  }
+  if (cols[1].innerText == cpuOpponent && cols[4].innerText == cpuOpponent && colIsEmpty(7)) {
+    return playAtClass(cols[7]);
+  }
+  // line 3
+  if (colIsEmpty(2) && cols[5].innerText == cpuOpponent && cols[8].innerText == cpuOpponent) {
+    return playAtClass(cols[2]);
+  }
+  if (cols[2].innerText == cpuOpponent && colIsEmpty(5) && cols[8].innerText == cpuOpponent) {
+    return playAtClass(cols[5]);
+  }
+  if (cols[2].innerText == cpuOpponent && cols[5].innerText == cpuOpponent && colIsEmpty(8)) {
+    return playAtClass(cols[8]);
+  }
+  // diagonal 1
+  if (colIsEmpty(0) && cols[4].innerText == cpuOpponent && cols[8].innerText == cpuOpponent) {
+    return playAtClass(cols[0]);
+  }
+  if (cols[0].innerText == cpuOpponent && colIsEmpty(4) && cols[8].innerText == cpuOpponent) {
+    return playAtClass(cols[4]);
+  }
+  if (cols[0].innerText == cpuOpponent && cols[4].innerText == cpuOpponent && colIsEmpty(8)) {
+    return playAtClass(cols[8]);
+  }
+  // diagonal 2
+  if (colIsEmpty(2) && cols[4].innerText == cpuOpponent && cols[6].innerText == cpuOpponent) {
+    return playAtClass(cols[2]);
+  }
+  if (cols[2].innerText == cpuOpponent && colIsEmpty(4) && cols[6].innerText == cpuOpponent) {
+    return playAtClass(cols[4]);
+  }
+  if (cols[2].innerText == cpuOpponent && cols[4].innerText == cpuOpponent && colIsEmpty(6)) {
+    return playAtClass(cols[6]);
+  }
+  // Try to win
+
+  
+  // Not danger // Rest
+  rest = [];
+  cols.forEach(col => {
+  if (col.innerText == "_")
+    rest.push(col)
+  })
+  return playAtClass(rest[Math.floor(Math.random() * rest.length)])
+
 }
 
 const cpuPlay = () => {
