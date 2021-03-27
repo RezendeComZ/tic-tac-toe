@@ -161,14 +161,14 @@ window.addEventListener('click', ev => {
   } else {
     playerBPoints++
     playerBPointsDiv.innerText = playerBPoints;
-    winnerName = playerBName
+    winnerName = playerBNameDiv.innerText
   }
   alert(`Winner: ${winnerName}`)
   round++;
   roundDiv.innerText = round;
   console.log(`Round ${round}. Winner: ${winnerName}. ${playerAName}: ${playerAPoints} - ${playerBName}: ${playerBPoints}` )
   reset()
-  if (!playerBNameDiv.innerText == '🖥️ CPU') {
+  if (playerBNameDiv.innerText == '🖥️ CPU') {
     changePlayer()
   }
 }
