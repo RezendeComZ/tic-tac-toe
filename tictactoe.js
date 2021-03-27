@@ -3,9 +3,10 @@
 // dark mode
 // console.table game at end
 // timer at console
-// reset rounds at name change
 // start with CPU
 // when player B name is empty, change to CPU
+// Flash winner line
+// Tie - warning
 
 const qSelector = div => {
   return document.querySelectorAll(div)
@@ -31,9 +32,9 @@ playerANameDiv.addEventListener('click', (ev) => {
   playerAName = prompt('Player A name:')
   if (playerAName != '') {
     playerANameDiv.innerText = playerAName;
+    roundReset();
   }
 })
-
 
 let playerBName = 'Player B';
 let playerBNameDiv = qSelector('#playerBName')[0];
@@ -46,12 +47,18 @@ playerBNameDiv.addEventListener('click', (ev) => {
   playerBName = prompt('Player B name:')
   if (playerBName != '') {
     playerBNameDiv.innerText = playerBName;
+    roundReset();
   }
 })
 
 let round = 1;
 let roundDiv = qSelector('#round')[0]
 roundDiv.innerText = round
+const roundReset = () => {
+  round = 0;
+  roundDiv.innerText = round;
+}
+
 let playerTurn = 'X';
 
 let textTurn = ' - Your turn'
