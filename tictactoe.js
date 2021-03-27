@@ -14,7 +14,9 @@ const qSelector = div => {
 
 let cols = qSelector('.col');
 
+let nineToTie = 0
 const reset = () => {
+  nineToTie = 0;
   cols.forEach(col => {
     col.innerHTML = '<p class="placeholder">_</p>'
   })
@@ -80,6 +82,12 @@ cols.forEach(col => {
     if (ev.target.classList[0] == 'placeholder') {
       col.innerHTML = `<p class='played'>${playerTurn}</p>`
       changePlayer()
+      nineToTie++;
+    }
+    if (nineToTie >= 9) {
+      alert('Tie!');
+      reset();
+      changePlayer()
     }
   })
 })
@@ -129,7 +137,6 @@ window.addEventListener('click', ev => {
       }
   }
 })
-
 
 const winner = () => {
   changePlayer()
