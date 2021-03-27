@@ -44,3 +44,18 @@ p {
 .placeholder{
   color: white
 }
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  background-color: rgb(50, 50, 50);
+  border-radius: 0px 10px 0px 0px;
+  line-height: 0%;
+  padding: 10px 10px 10px 20px;
+  left: -10px;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
