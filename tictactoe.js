@@ -6,6 +6,7 @@
 // start with CPU
 // when player B name is empty, change to CPU
 // Flash winner line
+// timer challenge
 
 const qSelector = div => {
   return document.querySelectorAll(div)
