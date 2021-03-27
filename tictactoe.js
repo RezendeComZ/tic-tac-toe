@@ -6,7 +6,6 @@
 // start with CPU
 // when player B name is empty, change to CPU
 // Flash winner line
-// Tie - warning
 
 const qSelector = div => {
   return document.querySelectorAll(div)
@@ -84,11 +83,6 @@ cols.forEach(col => {
       changePlayer()
       nineToTie++;
     }
-    if (nineToTie >= 9) {
-      alert('Tie!');
-      reset();
-      changePlayer()
-    }
   })
 })
 
@@ -116,7 +110,7 @@ window.addEventListener('click', ev => {
     }
   }
   // line 3:
-    if (cols[8].innerText != '_') {
+  if (cols[8].innerText != '_') {
     // horizontal:
     if (cols[6].innerText == cols[7].innerText && cols[6].innerText == cols[8].innerText) {
       return winner()
@@ -127,19 +121,24 @@ window.addEventListener('click', ev => {
     }
   }
   if (cols[4].innerText != '_') {
-      // diagonal 1
-      if (cols[0].innerText == cols[4].innerText && cols[0].innerText == cols[8].innerText){
+    // diagonal 1
+    if (cols[0].innerText == cols[4].innerText && cols[0].innerText == cols[8].innerText){
+      return winner()
+    }
+    // diagonal 2
+    if (cols[2].innerText == cols[4].innerText && cols[2].innerText == cols[6].innerText){
        return winner()
       }
-      // diagonal 2
-      if (cols[2].innerText == cols[4].innerText && cols[2].innerText == cols[6].innerText){
-       return winner()
-      }
-  }
-})
-
-const winner = () => {
-  changePlayer()
+    }
+    if (nineToTie >= 9) {
+      alert('Tie!');
+      reset();
+      changePlayer()
+    }
+  })
+  
+  const winner = () => {
+    changePlayer()
   let winnerName = '';
   if (playerTurn == 'X') {
     playerAPoints++;
