@@ -3,6 +3,9 @@
 // dark mode
 // console.table game at end
 // timer at console
+// reset rounds at name change
+// start with CPU
+// when player B name is empty, change to CPU
 
 const qSelector = div => {
   return document.querySelectorAll(div)
