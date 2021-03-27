@@ -48,6 +48,9 @@ playerBNameDiv.addEventListener('click', (ev) => {
   playerBName = prompt('Player B name. If you want to play against the CPU type "cpu".')
   if (!playerBName || playerBName == 'cpu' || playerBName == 'CPU' || playerBName == 'Cpu' || playerBName == '🖥️ CPU') {
     playerBNameDiv.innerText = '🖥️ CPU';
+    if (playerTurn == 'O') {
+      changePlayer();
+    }
     roundReset();
     reset()
   } else {
