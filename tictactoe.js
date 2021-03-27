@@ -45,8 +45,8 @@ let playerBPointsDiv = qSelector('#playerBPoints')[0];
 playerBPointsDiv.innerText = playerBPoints;
 playerBNameDiv.addEventListener('click', (ev) => {
   ev.preventDefault();
-  playerBName = prompt('Player B name:') // Future CPU indication
-  if (!playerBName || playerBName == 'cpu' || playerBName == 'CPU' || playerBName == 'Cpu') {
+  playerBName = prompt('Player B name. If you want to play against the CPU type "cpu".')
+  if (!playerBName || playerBName == 'cpu' || playerBName == 'CPU' || playerBName == 'Cpu' || playerBName == '🖥️ CPU') {
     playerBNameDiv.innerText = '🖥️ CPU';
     roundReset();
     reset()
