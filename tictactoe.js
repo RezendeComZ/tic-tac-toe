@@ -209,11 +209,93 @@ const playAtBorder = () => {
 }
 
 const checkDanger = () => {
+  // Try to win
+  // horizontal
+  // line 1
+  if (cols[0].innerText == playerTurn && cols[1].innerText == playerTurn && colIsEmpty(2)) {
+    return playAtClass(cols[2]);
+  }
+  if (cols[0].innerText == playerTurn && colIsEmpty(1) && cols[2].innerText == playerTurn) {
+    return playAtClass(cols[1]);
+  }
+  if (colIsEmpty(0) && cols[1].innerText == playerTurn && cols[2].innerText == playerTurn) {
+    return playAtClass(cols[0]);
+  }
+  // line 2
+  if (cols[3].innerText == playerTurn && cols[4].innerText == playerTurn && colIsEmpty(5)) {
+    return playAtClass(cols[5]);
+  }
+  if (cols[3].innerText == playerTurn && colIsEmpty(4) && cols[5].innerText == playerTurn) {
+    return playAtClass(cols[4]);
+  }
+  if (colIsEmpty(3) && cols[4].innerText == playerTurn && cols[5].innerText == playerTurn) {
+    return playAtClass(cols[3]);
+  }
+  // line 3
+  if (cols[6].innerText == playerTurn && cols[7].innerText == playerTurn && colIsEmpty(8)) {
+    return playAtClass(cols[8]);
+  }
+  if (cols[6].innerText == playerTurn && colIsEmpty(7) && cols[8].innerText == playerTurn) {
+    return playAtClass(cols[7]);
+  }
+  if (colIsEmpty(6) && cols[7].innerText == playerTurn && cols[8].innerText == playerTurn) {
+    return playAtClass(cols[6]);
+  }
+  // Vertical
+  // line 1
+  if (colIsEmpty(0) && cols[3].innerText == playerTurn && cols[6].innerText == playerTurn) {
+    return playAtClass(cols[0]);
+  }
+  if (cols[0].innerText == playerTurn && colIsEmpty(3) && cols[6].innerText == playerTurn) {
+    return playAtClass(cols[3]);
+  }
+  if (cols[0].innerText == playerTurn && cols[3].innerText == playerTurn && colIsEmpty(6)) {
+    return playAtClass(cols[6]);
+  }
+  // line 2
+  if (colIsEmpty(1) && cols[4].innerText == playerTurn && cols[7].innerText == playerTurn) {
+    return playAtClass(cols[1]);
+  }
+  if (cols[1].innerText == playerTurn && colIsEmpty(4) && cols[7].innerText == playerTurn) {
+    return playAtClass(cols[4]);
+  }
+  if (cols[1].innerText == playerTurn && cols[4].innerText == playerTurn && colIsEmpty(7)) {
+    return playAtClass(cols[7]);
+  }
+  // line 3
+  if (colIsEmpty(2) && cols[5].innerText == playerTurn && cols[8].innerText == playerTurn) {
+    return playAtClass(cols[2]);
+  }
+  if (cols[2].innerText == playerTurn && colIsEmpty(5) && cols[8].innerText == playerTurn) {
+    return playAtClass(cols[5]);
+  }
+  if (cols[2].innerText == playerTurn && cols[5].innerText == playerTurn && colIsEmpty(8)) {
+    return playAtClass(cols[8]);
+  }
+  // diagonal 1
+  if (colIsEmpty(0) && cols[4].innerText == playerTurn && cols[8].innerText == playerTurn) {
+    return playAtClass(cols[0]);
+  }
+  if (cols[0].innerText == playerTurn && colIsEmpty(4) && cols[8].innerText == playerTurn) {
+    return playAtClass(cols[4]);
+  }
+  if (cols[0].innerText == playerTurn && cols[4].innerText == playerTurn && colIsEmpty(8)) {
+    return playAtClass(cols[8]);
+  }
+  // diagonal 2
+  if (colIsEmpty(2) && cols[4].innerText == playerTurn && cols[6].innerText == playerTurn) {
+    return playAtClass(cols[2]);
+  }
+  if (cols[2].innerText == playerTurn && colIsEmpty(4) && cols[6].innerText == playerTurn) {
+    return playAtClass(cols[4]);
+  }
+  if (cols[2].innerText == playerTurn && cols[4].innerText == playerTurn && colIsEmpty(6)) {
+    return playAtClass(cols[6]);
+  }
+  // Protect
   // Horizontal
   // line 1
-  console.log("check danger cpu oponent: " + cpuOpponent)
   if (cols[0].innerText == cpuOpponent && cols[1].innerText == cpuOpponent && colIsEmpty(2)) {
-    console.log('entrou no primeior if')
     return playAtClass(cols[2]);
   }
   if (cols[0].innerText == cpuOpponent && colIsEmpty(1) && cols[2].innerText == cpuOpponent) {
@@ -293,9 +375,8 @@ const checkDanger = () => {
   if (cols[2].innerText == cpuOpponent && cols[4].innerText == cpuOpponent && colIsEmpty(6)) {
     return playAtClass(cols[6]);
   }
-  // Try to win
 
-  
+
   // Not danger // Rest
   rest = [];
   cols.forEach(col => {
