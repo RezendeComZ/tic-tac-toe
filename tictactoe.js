@@ -45,10 +45,12 @@ let playerBPointsDiv = qSelector('#playerBPoints')[0];
 playerBPointsDiv.innerText = playerBPoints;
 playerBNameDiv.addEventListener('click', (ev) => {
   ev.preventDefault();
-  playerBName = prompt('Player B name:')
-  if (playerBName != '') {
-    playerBNameDiv.innerText = playerBName;
+  playerBName = prompt('Player B name:') // Future CPU indication
+  if (!playerBName || playerBName == 'cpu' || playerBName == 'CPU') {
+    playerBNameDiv.innerText = '🖥️ CPU';
     roundReset();
+  } else {
+    playerBNameDiv.innerText = playerBName;
   }
 })
 
