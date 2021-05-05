@@ -150,6 +150,8 @@ window.addEventListener('click', ev => {
     if (nineToDraw >= 9) {
       alert('Draw!');
       reset();
+      round++;
+      roundDiv.innerText = round;
       changePlayer()
     }
   })
