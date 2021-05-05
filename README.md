@@ -1,5 +1,7 @@
 # Tic Tac Toe
 
+<span style="color:red">WARNING</span>: OLD CODE AHEAD 👀
+
 A vanilla javascript Tic-tac-toe game with bootstrap.
 
 I wrote this simple game from scratch to test and see if it was possible to make a game with my current javascript knowledge.
